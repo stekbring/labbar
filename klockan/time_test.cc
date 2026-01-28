@@ -98,11 +98,11 @@ TEST_CASE ("to_string")
 
    SECTION("12 hour format")
    {
-      CHECK( t0.to_string(false) == "00:00:00" );
-      CHECK( t1.to_string(true)  == "11:59:59 am" );
-      CHECK( t2.to_string(true)  == "12:00:00 pm" );
-      CHECK( t3.to_string(false) == "13:00:00" );
-      CHECK( t4.to_string(true)  == "11:59:59 pm" );
+      CHECK( t0.to_string(true) == "12:00:00 am" );
+      CHECK( t1.to_string(true) == "11:59:59 am" );
+      CHECK( t2.to_string(true) == "12:00:00 pm" );
+      CHECK( t3.to_string(true) == "01:00:00 pm" );
+      CHECK( t4.to_string(true) == "11:59:59 pm" );
    }
 }
 
