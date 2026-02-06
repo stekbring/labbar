@@ -1,6 +1,7 @@
 #ifndef TIME_H
 #define TIME_H
 #include <string>
+#include <iostream>
 
 class Time
 {
@@ -16,10 +17,22 @@ class Time
         bool is_am() const;
         std::string to_string(bool am_pm = false) const;
 
+        Time& operator++();
+        Time operator++(int);
+
     private:
-        int hour;
-        int minute;
-        int second;
+        int hour{0};
+        int minute{0};
+        int second{0};
 };
+
+bool operator<(Time const& lhs, Time const& rhs);
+bool operator>(Time const& lhs, Time const& rhs);
+bool operator<=(Time const& lhs, Time const& rhs);
+bool operator>=(Time const& lhs, Time const& rhs);
+bool operator==(Time const& lhs, Time const& rhs);
+bool operator!=(Time const& lhs, Time const& rhs);
+
+std::ostream& operator<<(std::ostream& os, Time const& t);
 
 #endif
