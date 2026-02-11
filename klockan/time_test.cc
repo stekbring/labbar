@@ -80,6 +80,7 @@ TEST_CASE ("to_string")
    Time t2{12, 0, 0};
    Time t3{13, 0, 0};
    Time t4{23, 59, 59};
+   Time t5{0,0,0};
 
    SECTION("24 hour format no argument")
    {
@@ -106,6 +107,8 @@ TEST_CASE ("to_string")
       CHECK( t2.to_string(true) == "12:00:00 pm" );
       CHECK( t3.to_string(true) == "01:00:00 pm" );
       CHECK( t4.to_string(true) == "11:59:59 pm" );
+      CHECK( t5.to_string(true) == "12:00:00 am" );
+
    }
 }
 
@@ -136,7 +139,7 @@ TEST_CASE ("add time")
    CHECK( (++t5).to_string() == "10:00:02" );
 }
 
-TEST_CASE ("Compare")
+TEST_CASE ("compare")
 {
    Time t1{10, 30, 00};
    Time t2{10, 30, 00}; 

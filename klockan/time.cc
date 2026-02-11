@@ -37,37 +37,6 @@ Time::Time(string time_str)
         throw std::invalid_argument("Du kan ej ha timmar under 0 eller över 24");
 }
 
-Time& Time::operator++()
-{
-    second++;
-
-    if (second >= 60)
-    {
-        second = 0;
-        minute++;
-        if (minute >= 60)
-        {
-            minute = 0;
-            hour++;
-            
-            if (hour >= 24)
-            {
-                hour = 0;
-            }
-        }
-    }
-
-    return *this;
-}
-
-Time Time::operator++(int)
-{
-    Time temp = *this;
-    ++(*this);
-    return temp;
-}
-
-
 string Time::to_string(bool am_pm) const
 {
     std::ostringstream oss{};
@@ -138,6 +107,36 @@ int Time::get_second() const
 bool Time::is_am() const
 {
     return hour < 12;
+}
+
+Time& Time::operator++()
+{
+    second++;
+
+    if (second >= 60)
+    {
+        second = 0;
+        minute++;
+        if (minute >= 60)
+        {
+            minute = 0;
+            hour++;
+            
+            if (hour >= 24)
+            {
+                hour = 0;
+            }
+        }
+    }
+
+    return *this;
+}
+
+Time Time::operator++(int)
+{
+    Time temp = *this;
+    ++(*this);
+    return temp;
 }
 
 bool operator==(Time const& lhs, Time const& rhs)
