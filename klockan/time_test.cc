@@ -164,7 +164,7 @@ TEST_CASE ("compare")
    CHECK( t1 <= t3 ); 
 }
 
-TEST_CASE ("Print")
+TEST_CASE ("print")
 {
     Time t1{13, 37, 00};
     std::ostringstream ss;
