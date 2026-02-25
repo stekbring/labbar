@@ -18,7 +18,7 @@ Time::Time(int hour, int minute, int second)
         throw std::invalid_argument("Du kan ej ha timmar under 0 eller över 24");
 }
 
-Time::Time(string time_str)
+Time::Time(string const& time_str)
     : hour{0}, minute{0}, second{0}
 {
     std::istringstream iss{time_str};

@@ -8,7 +8,7 @@ class Time
     public:
         Time() = default;
         Time(int hour, int minute, int second);
-        Time(std::string time_str);
+        Time(std::string const& time_str);
 
         int get_hour() const;
         int get_minute() const;
